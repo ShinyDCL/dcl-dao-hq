@@ -1,6 +1,34 @@
 # Decentraland scene
 
-This folder contains all the necessary files to launch a Decentraland scene.
+This project contains scene with Decentraland DAO headquarters created for Sandstorm's Decentraland contest #18.
+Currently deployed under Decentraland name `Improve`. Follow [this link](https://play.decentraland.org/?realm=improve.dcl.eth) or type in the Decentraland chatbox `/changerealm improve.dcl.eth` to visit the scene.
+
+![DAO headquarters](screenshots/dao-hq1.png)
+![DAO headquarters](screenshots/dao-hq2.png)
+![DAO headquarters](screenshots/dao-hq3.png)
+![DAO headquarters](screenshots/dao-hq4.png)
+
+## 3D models
+
+Textures used for 3D models:
+
+- Grass on the ground [ambientCG](https://ambientcg.com/view?id=Moss004), AmbientCG has a nice selection of textures under [Creative Commons CC0 1.0 Universal License](https://docs.ambientcg.com/books/website-licensing/page/license-information)
+- Marble for building [ambientCG](https://ambientcg.com/view?id=Marble004)
+- Wood [ambientCG](https://ambientcg.com/view?id=Wood027)
+- Fabric for chairs and sofas [ambientCG](https://ambientcg.com/view?id=Fabric035)
+- Plant leaves, patterns on mugs and laptop keyboard generated using Midjourney.
+  - Small plant (snake plant) leaves - top left image
+    ![Leaves generated using Midjourney](screenshots/midjourney-leaves1.png)
+  - Big plant (bird of paradise) leaves - bottom right image
+    ![Leaves generated using Midjourney](screenshots/midjourney-leaves2.png)
+  - Laptop keyboard - bottom right image
+    ![Keyboards generated using Midjourney](screenshots/midjourney-keyboard.png)
+  - Dot pattern on mugs - bottom right image
+    ![Keyboards generated using Midjourney](screenshots/midjourney-dots.png)
+  - Stripe pattern on mugs - bottom right image
+    ![Keyboards generated using Midjourney](screenshots/midjourney-stripes.png)
+  - Geometric pattern on mugs - bottom left image
+    ![Keyboards generated using Midjourney](screenshots/midjourney-pattern.png)
 
 ## Try it out
 
