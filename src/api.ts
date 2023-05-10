@@ -99,9 +99,15 @@ export const getUserProfiles = async (
   addresses: string[]
 ): Promise<UserProfile[] | undefined> => {
   try {
-    const res = await fetch(
-      `${DECENTRALAND_API_URL}/profiles/?id=${addresses.join('&id=')}`
-    );
+    const res = await fetch(`${DECENTRALAND_API_URL}/profiles`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        ids: addresses,
+      }),
+    });
     const json = await res.json();
     return json;
   } catch {
