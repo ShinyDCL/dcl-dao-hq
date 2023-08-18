@@ -1,82 +1,67 @@
-import {
-  BUILDER_URL,
-  EVENTS_URL,
-  GOVERNANCE_URL,
-  MARKET_URL,
-  PLACES_URL,
-} from './config';
+import { Entity, InputAction, MeshCollider, Transform, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
+import { Quaternion, Vector3 } from '@dcl/sdk/math'
+import { BUILDER_URL, EVENTS_URL, GOVERNANCE_URL, MARKET_URL, PLACES_URL } from './config'
+import { openExternalUrl } from '~system/RestrictedActions'
 
-const material = new Material();
-material.albedoColor = new Color4(0, 0, 0, 0);
-material.castShadows = false;
-const defaultScale = new Vector3(0.01, 0.5, 0.84);
-const laptops = [
+const laptopConfig = [
   {
     transform: {
-      position: new Vector3(-4.745, 1.42, -8.44),
-      rotation: Quaternion.Euler(0, 8, 20),
+      position: Vector3.create(-4.745, 1.42, -8.44),
+      rotation: Quaternion.fromEulerDegrees(0, 8, 20)
     },
     url: MARKET_URL,
-    title: 'Market',
+    title: 'Market'
   },
   {
     transform: {
-      position: new Vector3(-8.16, 1.42, 1.25),
-      rotation: Quaternion.Euler(0, 78, 20),
+      position: Vector3.create(-8.16, 1.42, 1.25),
+      rotation: Quaternion.fromEulerDegrees(0, 78, 20)
     },
     url: PLACES_URL,
-    title: 'Places',
+    title: 'Places'
   },
 
   {
     transform: {
-      position: new Vector3(-8.44, 1.42, 1.88),
-      rotation: Quaternion.Euler(0, 205.5, 20),
+      position: Vector3.create(-8.44, 1.42, 1.88),
+      rotation: Quaternion.fromEulerDegrees(0, 205.5, 20)
     },
     url: GOVERNANCE_URL,
-    title: 'DAO',
+    title: 'DAO'
   },
   {
     transform: {
-      position: new Vector3(4.61, 1.42, -8.34),
-      rotation: Quaternion.Euler(0, 77, 20),
+      position: Vector3.create(4.61, 1.42, -8.34),
+      rotation: Quaternion.fromEulerDegrees(0, 77, 20)
     },
     url: EVENTS_URL,
-    title: 'Events',
+    title: 'Events'
   },
   {
     transform: {
-      position: new Vector3(3.62, 1.42, -1.86),
-      rotation: Quaternion.Euler(0, 255, 20),
+      position: Vector3.create(3.62, 1.42, -1.86),
+      rotation: Quaternion.fromEulerDegrees(0, 255, 20)
     },
     url: BUILDER_URL,
-    title: 'Builder',
-  },
-];
+    title: 'Builder'
+  }
+]
+
+const defaultScale = Vector3.create(0.01, 0.5, 0.84)
 
 export const createLaptops = (parent: Entity) => {
-  laptops.forEach((laptop) => {
-    const entity = new Entity();
-    const boxShape = new BoxShape();
+  laptopConfig.forEach(({ title, transform, url }) => {
+    const entity = engine.addEntity()
 
-    entity.addComponent(material);
-    entity.addComponent(boxShape);
-    entity.addComponentOrReplace(
-      new Transform({
-        scale: defaultScale,
-        ...laptop.transform,
-      })
-    );
+    MeshCollider.setBox(entity)
+    Transform.create(entity, { ...transform, scale: defaultScale, parent })
 
-    entity.addComponentOrReplace(
-      new OnPointerDown(
-        () => {
-          openExternalURL(laptop.url);
-        },
-        { hoverText: laptop.title }
-      )
-    );
-
-    entity.setParent(parent);
-  });
-};
+    pointerEventsSystem.onPointerDown(
+      {
+        entity,
+        opts: { button: InputAction.IA_POINTER, hoverText: title }
+      },
+      () => openExternalUrl({ url })
+    )
+  })
+}

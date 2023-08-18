@@ -1,45 +1,58 @@
 {
-  "display": {
-    "title": "DAO headquarters",
-    "description": "DAO headquarters for hosting Decentraland in-world DAO Town Halls and other DAO events",
-    "navmapThumbnail": "images/scene-thumbnail.png",
-    "favicon": "favicon_asset"
-  },
-  "owner": "",
-  "contact": {
-    "name": "ShinyDCL",
-    "email": "citrons915@gmail.com"
-  },
-  "main": "bin/game.js",
-  "tags": [],
-  "scene": {
-    "parcels": [
-      "0,0",
-      "0,1",
-      "1,0",
-      "1,1"
-    ],
-    "base": "0,0"
-  },
-  "spawnPoints": [
-    {
-      "name": "spawn1",
-      "default": true,
-      "position": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "cameraTarget": {
-        "x": 8,
-        "y": 1,
-        "z": 8
-      }
-    }
-  ],
-  "requiredPermissions": [],
-  "featureToggles": {},
-  "worldConfiguration": {
-    "name": "improve.dcl.eth"
-  }
+	"ecs7": true,
+	"runtimeVersion": "7",
+	"display": {
+		"title": "DAO Headquarters",
+		"description": "DAO headquarters for hosting Decentraland in-world DAO Town Halls and other DAO events",
+		"navmapThumbnail": "images/scene-thumbnail.png",
+		"favicon": "favicon_asset"
+	},
+	"owner": "ShinyDCL",
+	"contact": {
+		"name": "ShinyDCL",
+		"email": "citrons915@gmail.com"
+	},
+	"main": "bin/index.js",
+	"tags": [
+		"DAO",
+		"Headquarters",
+		"Governance"
+	],
+	"scene": {
+		"parcels": [
+			"0,0",
+			"0,1",
+			"1,0",
+			"1,1"
+		],
+		"base": "0,0"
+	},
+	"spawnPoints": [
+		{
+			"name": "spawn1",
+			"default": true,
+			"position": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"cameraTarget": {
+				"x": 8,
+				"y": 1,
+				"z": 8
+			}
+		}
+	],
+	"requiredPermissions": [
+		"ALLOW_MEDIA_HOSTNAMES"
+	],
+	"allowedMediaHostnames": [
+		"governance.decentraland.org",
+		"hub.snapshot.org",
+		"peer.decentraland.org"
+	],
+	"featureToggles": {},
+	"worldConfiguration": {
+		"name": "improve.dcl.eth"
+	}
 }
