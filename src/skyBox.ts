@@ -2,7 +2,7 @@ import { Entity, engine, Transform, MeshRenderer, Material } from '@dcl/sdk/ecs'
 import { Vector3, Quaternion } from '@dcl/sdk/math'
 import { SCENE_MIDDLE, SCENE_SIZE } from './config'
 
-export const createSkyBox = (parent: Entity): Entity => {
+export const setUpSkyBox = (parent: Entity): Entity => {
   const folderPath = 'images/skybox'
   const defaultScale = Vector3.create(SCENE_SIZE, SCENE_MIDDLE, SCENE_SIZE)
 

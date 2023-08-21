@@ -1,10 +1,10 @@
-import { engine, executeTask, GltfContainer, Transform } from '@dcl/sdk/ecs'
+import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
 import { SCENE_MIDDLE } from './config'
-import { createTopVoterBoard, createVotingBoard } from './board'
-import { createLaptops } from './laptops'
-import { createSkyBox } from './skyBox'
-import { setupLinks } from './links'
+import { setUpVideoPlayer } from './videoPlayer'
+import { setUpLaptops } from './laptops'
+import { setUpBoards } from './board'
+import { setUpSkyBox } from './skyBox'
 
 export function main() {
   const scene = engine.addEntity(false)
@@ -15,16 +15,8 @@ export function main() {
   Transform.create(border, { parent: scene })
   GltfContainer.create(border, { src: 'models/border.glb' })
 
-  createLaptops(scene)
-  setupLinks(scene)
-
-  executeTask(async () => {
-    await createVotingBoard(scene)
-  })
-
-  executeTask(async () => {
-    await createTopVoterBoard(scene)
-  })
-
-  createSkyBox(scene)
+  setUpLaptops(scene)
+  setUpVideoPlayer(scene)
+  setUpBoards(scene)
+  setUpSkyBox(scene)
 }

@@ -1,4 +1,13 @@
-import { Entity, GltfContainer, InputAction, TextShape, Transform, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
+import {
+  Entity,
+  GltfContainer,
+  InputAction,
+  TextShape,
+  Transform,
+  engine,
+  executeTask,
+  pointerEventsSystem
+} from '@dcl/sdk/ecs'
 import { getProposals, getTodaysVotes, getUserProfiles } from './api'
 import { GOVERNANCE_URL } from './config'
 import { Color4, Vector3 } from '@dcl/sdk/math'
@@ -7,6 +16,16 @@ import { openExternalUrl } from '~system/RestrictedActions'
 export interface BoardItem {
   title: string
   url: string
+}
+
+export const setUpBoards = (parent: Entity) => {
+  executeTask(async () => {
+    await createVotingBoard(parent)
+  })
+
+  executeTask(async () => {
+    await createTopVoterBoard(parent)
+  })
 }
 
 export const createVotingBoard = async (parent: Entity): Promise<Entity> => {

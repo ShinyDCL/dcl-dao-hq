@@ -49,7 +49,7 @@ const laptopConfig = [
 
 const defaultScale = Vector3.create(0.01, 0.5, 0.84)
 
-export const createLaptops = (parent: Entity) => {
+export const setUpLaptops = (parent: Entity) => {
   laptopConfig.forEach(({ title, transform, url }) => {
     const entity = engine.addEntity()
 
