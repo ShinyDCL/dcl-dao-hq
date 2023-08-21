@@ -21,9 +21,8 @@ export const createLinkEntity = (transform: Partial<TransformType>, linkType: Li
   Transform.create(entity, transform)
   GltfContainer.create(entity, { src: LINK_MODELS[linkType] })
 
-  pointerEventsSystem.onPointerDown(
-    { entity: entity, opts: { button: InputAction.IA_POINTER, hoverText: linkType } },
-    () => openExternalUrl({ url: URLS[linkType] })
+  pointerEventsSystem.onPointerDown({ entity, opts: { button: InputAction.IA_POINTER, hoverText: linkType } }, () =>
+    openExternalUrl({ url: URLS[linkType] })
   )
 
   return entity

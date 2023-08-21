@@ -5,6 +5,7 @@ import { setUpVideoPlayer } from './videoPlayer'
 import { setUpLaptops } from './laptops'
 import { setUpBoards } from './board'
 import { setUpSkyBox } from './skyBox'
+import { setupLinks } from './links'
 
 export function main() {
   const scene = engine.addEntity(false)
@@ -15,6 +16,7 @@ export function main() {
   Transform.create(border, { parent: scene })
   GltfContainer.create(border, { src: 'models/border.glb' })
 
+  setupLinks(scene)
   setUpLaptops(scene)
   setUpVideoPlayer(scene)
   setUpBoards(scene)
