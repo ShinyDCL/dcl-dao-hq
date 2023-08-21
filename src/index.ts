@@ -4,6 +4,7 @@ import { SCENE_MIDDLE } from './config'
 import { createTopVoterBoard, createVotingBoard } from './board'
 import { createLaptops } from './laptops'
 import { createSkyBox } from './skyBox'
+import { setupLinks } from './links'
 
 export function main() {
   const scene = engine.addEntity(false)
@@ -15,6 +16,7 @@ export function main() {
   GltfContainer.create(border, { src: 'models/border.glb' })
 
   createLaptops(scene)
+  setupLinks(scene)
 
   executeTask(async () => {
     await createVotingBoard(scene)
