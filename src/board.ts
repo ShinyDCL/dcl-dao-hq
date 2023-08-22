@@ -90,7 +90,9 @@ export const createBoard = (data?: BoardItem[]): Entity => {
         entity: boardItem,
         opts: { button: InputAction.IA_POINTER, hoverText: 'Open' }
       },
-      () => openExternalUrl({ url })
+      () => {
+        openExternalUrl({ url })
+      }
     )
 
     const textEntity = engine.addEntity()

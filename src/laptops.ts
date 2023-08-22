@@ -61,7 +61,9 @@ export const setUpLaptops = (parent: Entity) => {
         entity,
         opts: { button: InputAction.IA_POINTER, hoverText: title }
       },
-      () => openExternalUrl({ url })
+      () => {
+        openExternalUrl({ url })
+      }
     )
   })
 }
