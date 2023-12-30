@@ -14,9 +14,7 @@
 	},
 	"main": "bin/index.js",
 	"tags": [
-		"DAO",
-		"Headquarters",
-		"Governance"
+		"social"
 	],
 	"scene": {
 		"parcels": [

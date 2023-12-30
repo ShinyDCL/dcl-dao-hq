@@ -1,7 +1,9 @@
-import { Entity, InputAction, MeshCollider, Transform, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
-import { Quaternion, Vector3 } from '@dcl/sdk/math'
-import { BUILDER_URL, EVENTS_URL, GOVERNANCE_URL, MARKET_URL, PLACES_URL } from './config'
 import { openExternalUrl } from '~system/RestrictedActions'
+
+import { engine, Entity, InputAction, MeshCollider, pointerEventsSystem, Transform } from '@dcl/sdk/ecs'
+import { Quaternion, Vector3 } from '@dcl/sdk/math'
+
+import { BUILDER_URL, EVENTS_URL, GOVERNANCE_URL, MARKET_URL, PLACES_URL } from './config'
 
 const laptopConfig = [
   {

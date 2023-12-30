@@ -1,18 +1,19 @@
 import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
-import { SCENE_MIDDLE } from './config'
-import { setUpVideoPlayer } from './videoPlayer'
-import { setUpLaptops } from './laptops'
+
 import { setUpBoards } from './board'
-import { setUpSkyBox } from './skyBox'
+import { SCENE_MIDDLE } from './config'
+import { setUpLaptops } from './laptops'
 import { setupLinks } from './links'
+import { setUpSkyBox } from './skyBox'
+import { setUpVideoPlayer } from './videoPlayer'
 
 export function main() {
-  const scene = engine.addEntity(false)
+  const scene = engine.addEntity()
   Transform.create(scene, { position: Vector3.create(SCENE_MIDDLE, 0, SCENE_MIDDLE) })
   GltfContainer.create(scene, { src: 'models/scene.glb' })
 
-  const border = engine.addEntity(false)
+  const border = engine.addEntity()
   Transform.create(border, { parent: scene })
   GltfContainer.create(border, { src: 'models/border.glb' })
 

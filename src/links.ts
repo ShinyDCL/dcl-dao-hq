@@ -1,5 +1,6 @@
-import { Entity, GltfContainer, InputAction, Transform, TransformType, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
 import { openExternalUrl } from '~system/RestrictedActions'
+
+import { engine, Entity, GltfContainer, InputAction, pointerEventsSystem, Transform, TransformType } from '@dcl/sdk/ecs'
 
 export enum LinkType {
   TWITTER = 'Twitter',

@@ -1,17 +1,19 @@
+import { openExternalUrl } from '~system/RestrictedActions'
+
 import {
+  engine,
   Entity,
+  executeTask,
   GltfContainer,
   InputAction,
+  pointerEventsSystem,
   TextShape,
-  Transform,
-  engine,
-  executeTask,
-  pointerEventsSystem
+  Transform
 } from '@dcl/sdk/ecs'
+import { Color4, Vector3 } from '@dcl/sdk/math'
+
 import { getProposals, getTodaysVotes, getUserProfiles } from './api'
 import { GOVERNANCE_URL } from './config'
-import { Color4, Vector3 } from '@dcl/sdk/math'
-import { openExternalUrl } from '~system/RestrictedActions'
 
 export interface BoardItem {
   title: string

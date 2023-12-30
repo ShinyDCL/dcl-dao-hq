@@ -1,4 +1,4 @@
-import { Entity, Material, MeshRenderer, Transform, VideoPlayer, engine } from '@dcl/sdk/ecs'
+import { engine, Entity, Material, MeshRenderer, Transform, VideoPlayer } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
 
 export const setUpVideoPlayer = (parent: Entity) => {
